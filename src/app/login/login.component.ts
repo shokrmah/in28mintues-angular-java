@@ -1,3 +1,4 @@
+import{HardcidedAuthService} from './../service/Hardcided-Auth.Service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,18 +10,19 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   username = "mahmoud";
-  password = "";
+  password = "dummy";
   errorMessage = "Invalid data";
   invalidLogin = false;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, public auth: HardcidedAuthService) { 
   }
 
   ngOnInit(): void {
   }
 
   handleLogin(){
-    if(this.username==="mahmoud" && this.password==="dummy")
+    //if(this.username==="mahmoud" && this.password==="dummy")
+    if(this.auth.authenticate(this.username,this.password))
     {
       this.invalidLogin = false;
       this.router.navigate(['welcome',this.username]);

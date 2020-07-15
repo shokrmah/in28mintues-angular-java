@@ -7,13 +7,21 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
+import { ListToDoComponent } from './list-to-do/list-to-do.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
-    ErrorComponent
+    ErrorComponent,
+    ListToDoComponent,
+    MenuComponent,
+    FooterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
