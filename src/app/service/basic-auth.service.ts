@@ -19,6 +19,26 @@ export class BasicAuthService {
   }
 
 
+//{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYWhtb3VkIiwiZXhwIjoxNTk1ODUyMjQ2LCJpYXQiOjE1OTUyNDc0NDZ9.tlbZIh5QOHZG3e-oz8-q_wVtMSC-7Mp0N_psV7rWa7wy_00DJhZJPmn_iu1KQLt12CHfDLJW0jTJegIqDtWzZg"}
+
+executeJwtService(user, password) {
+
+  console.log("loginnig");
+  
+  return this.http.post<any>(`${API_URL}/authenticate`,
+  {
+    user,
+    password
+  }).pipe(
+    map(
+      data =>{
+        sessionStorage.setItem('authenticaterUser',user);
+        sessionStorage.setItem('token',`Bearer ${data.token}`);
+        return data;
+      }
+    )
+  );
+}
 
 
   executeAuthService(user, password) {
